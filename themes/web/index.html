@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="./assets/css/home-style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <nav>
+              <a href="home"><span>eCommerce</span></a> 
+              <input type="text" id="search" placeholder="Type in the name of the product">
+              <ul>
+                <li>
+                  <a id="profile-name" class="hidden"></a>
+                </li>
+                <li>
+                  <a href="sign-in" id="to-change">Sign-in</a>
+                </li>
+                <li>
+                  <a href="shopping-cart">Cart</a>
+                </li>
+                <li>
+                  <a href="#all-products">Products</a>
+                </li>
+                <li>
+                  <a href="about">About</a>
+                </li>
+                <li>
+                  <a id="logout" class="hidden">Sign-out</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </header>
+      <section class="wellcome">
+        <div class="wellcome-container">
+          <h1>Wellcome</h1>
+          <img src="./storage/purple-lonely-chair-website-header-design.jpg">
+        </div>
+      </section>
+        <main>
+          <div class="h1-deals-div">
+            <h1>Today's Deals</h1>
+          </div>
+          <div class="container">
+            <div class="product">
+              <div class="img-test">
+                <span>Placeholder</span>
+              </div>
+              <a href="#" class="product-name">Placeholder</a>
+              <span class="price">$ 0.00</span>
+              <button class="button-2" role="button"><b>Buy</b></button>
+            </div>
+            <div class="product">
+              <div class="img-test">
+                <span>Placeholder</span>
+              </div>
+              <a href="#" class="product-name">Placeholder</a>
+              <span class="price">$ 0.00</span>
+              <button class="button-2" role="button"><b>Buy</b></button>
+            </div>
+            <div class="product">
+              <div class="img-test">
+                <span>Placeholder</span>
+              </div>
+              <a href="#" class="product-name">Placeholder</a>
+              <span class="price">$ 0.00</span>
+              <button class="button-2" role="button"><b>Buy</b></button>
+            </div>
+            <div class="product">
+              <div class="img-test">
+                <span>Placeholder</span>
+              </div>
+              <a href="#" class="product-name">Placeholder</a>
+              <span class="price">$ 0.00</span>
+              <button class="button-2" role="button"><b>Buy</b></button>
+            </div>
+            <div class="product">
+              <div class="img-test">
+                <span>Placeholder</span>
+              </div>
+              <a href="#" class="product-name">Placeholder</a>
+              <span class="price">$ 0.00</span>
+              <button class="button-2" role="button"><b>Buy</b></button>
+            </div>
+            <div class="product">
+              <div class="img-test">
+                <span>Placeholder</span>
+              </div>
+              <a href="#" class="product-name">Placeholder</a>
+              <span class="price">$ 0.00</span>
+              <button class="button-2" role="button"><b>Buy</b></button>
+            </div>
+            <div class="product">
+              <div class="img-test">
+                <span>Placeholder</span>
+              </div>
+              <a href="#" class="product-name">Placeholder</a>
+              <span class="price">$ 0.00</span>
+              <button class="button-2" role="button"><b>Buy</b></button>
+            </div>
+            <div class="product">
+              <div class="img-test">
+                <span>Placeholder</span>
+              </div>
+              <a href="#" class="product-name">Placeholder</a>
+              <span class="price">$ 0.00</span>
+              <button class="button-2" role="button"><b>Buy</b></button>
+            </div>
+            <div class="product">
+              <div class="img-test">
+                <span>Placeholder</span>
+              </div>
+              <a href="#" class="product-name">Placeholder</a>
+              <span class="price">$ 0.00</span>
+              <button class="button-2" role="button"><b>Buy</b></button>
+            </div>
+          </div>
+          </div>
+        </main>
+        <section class="info-section">
+          <div class="info-container">
+            <div class="info">
+              <div class="info-img">
+                <img src="./storage/payment.svg">
+              </div>
+              <span><b>Placeholder</b></span>
+              <p>
+                Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph.
+                Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph.
+                Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph. 
+              </p>
+            </div>
+            <div class="info">
+              <div class="info-img">
+                <img src="./storage/shipping.svg">
+              </div>
+              <span><b>Placeholder</b></span>
+              <p>
+                Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph.
+                Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph.
+                Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph.
+              </p>
+            </div>
+            <div class="info">
+              <div class="info-img">
+                <img src="./storage/protected.svg">
+              </div>
+              <span><b>Placeholder</b></span>
+              <p>
+                Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph.
+                Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph.
+                Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph Paragraph.
+              </p>
+            </div>
+          </div>
+        </section>
+        <main>
+          <div class="h1-deals-div" id="all-products">
+            <h1>All Products</h1>
+            <button class="button-2 hidden" id="open"><b>+</b></button>
+            <button class="button-2 hidden" id="close"><b>x</b></button>
+          </div>
+          <div class="container" id="products">
+            <div id="add-menu" class="hidden">
+              <input type="text" placeholder="Image URL" id="img">
+              <input type="text" placeholder="Name" id="name">
+              <input type="text" placeholder="Price" id="price">
+              <button class="button-2" id="add"><b>Add</b></button>
+            </div>
+            <div class="product">
+              <div class="img-test">
+                <span>Placeholder</span>
+              </div>
+              <a href="#" class="product-name">Placeholder</a>
+              <span class="price">$ 0.00</span>
+              <button class="button-2" role="button"><b>Buy</b></button>
+            </div>
+            <div class="product">
+              <div class="img-test">
+                <span>Placeholder</span>
+              </div>
+              <a href="#" class="product-name">Placeholder</a>
+              <span class="price">$ 0.00</span>
+              <button class="button-2" role="button"><b>Buy</b></button>
+            </div>
+            <div class="product">
+              <div class="img-test">
+                <span>Placeholder</span>
+              </div>
+              <a href="#" class="product-name">Placeholder</a>
+              <span class="price">$ 0.00</span>
+              <button class="button-2" role="button"><b>Buy</b></button>
+            </div>
+            <div class="product">
+              <div class="img-test">
+                <span>Placeholder</span>
+              </div>
+              <a href="#" class="product-name">Placeholder</a>
+              <span class="price">$ 0.00</span>
+              <button class="button-2" role="button"><b>Buy</b></button>
+            </div>
+            <div class="product">
+              <div class="img-test">
+                <span>Placeholder</span>
+              </div>
+              <a href="#" class="product-name">Placeholder</a>
+              <span class="price">$ 0.00</span>
+              <button class="button-2" role="button"><b>Buy</b></button>
+            </div>
+            <div class="product">
+              <div class="img-test">
+                <span>Placeholder</span>
+              </div>
+              <a href="#" class="product-name">Placeholder</a>
+              <span class="price">$ 0.00</span>
+              <button class="button-2" role="button"><b>Buy</b></button>
+            </div>
+            <div class="product">
+              <div class="img-test">
+                <span>Placeholder</span>
+              </div>
+              <a href="#" class="product-name">Placeholder</a>
+              <span class="price">$ 0.00</span>
+              <button class="button-2" role="button"><b>Buy</b></button>
+            </div>
+            <div class="product">
+              <div class="img-test">
+                <span>Placeholder</span>
+              </div>
+              <a href="#" class="product-name">Placeholder</a>
+              <span class="price">$ 0.00</span>
+              <button class="button-2" role="button"><b>Buy</b></button>
+            </div>
+          </div>
+        </main>
+      <footer>
+        <span>2022@ eCommerce</span>
+      </footer>
+      <script type="module" src="./assets/scripts/home-script.js" async></script>
+</body>
+</html>
