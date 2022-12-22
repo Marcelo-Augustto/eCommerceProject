@@ -39,7 +39,7 @@ class Api {
         }
     }
 
-    public function registerProducts($data) {
+    public function registerProduct($data) {
         $output = array();
 
         if ($data) {

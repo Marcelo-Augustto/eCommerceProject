@@ -1,25 +1,12 @@
-import { getCookie, request } from "./utils.js";
+import { getCookie, request } from "./Helpers/utils.js";
+import { Verify } from "./Helpers/verify.js";
+import { Cart } from "./Web/cart.js";
 
-function verifySession() {
-    if (getCookie("user")){
-        document.getElementById('to-change').classList.add('hidden');
-        document.getElementById('logout').classList.remove('hidden');
-        let profileName = document.getElementById('profile-name');
-        let cookie = JSON.parse(getCookie('user'));
-        profileName.innerHTML = cookie.username;
-        profileName.classList.remove('hidden');
-    }
-}
 
-async function getCart () {
-    let cookie = JSON.parse(getCookie('user'));
-    const res = await request(`get-cart`, { 
-        method: 'POST',
-        body: {
-            user: cookie.email 
-        }
-    });
-    console.log(res);
+async function main() {
+    Verify.cart_session();
+    const res = await Cart.get();
+    Cart.get_price(res);
 
     res.forEach(p => {
         document.querySelector('.cart').insertAdjacentHTML('beforeend', `
@@ -42,35 +29,14 @@ async function getCart () {
         `)
     });
 
-    let totalPrice = 0;
-    res.forEach(p => {
-        let tempPrice = Number(p.price) * Number(p.quantity);
-        totalPrice = totalPrice + tempPrice;
-    });
-    document.getElementById('total').innerHTML = `$ ${totalPrice.toFixed(2)}`;
-
     document.querySelectorAll('.minus').forEach((e,i) => {
         e.addEventListener('click', () => {
             res.forEach( async (j,k) =>{
                 if (i == k) {
                     if (j.quantity < 1) {
-                        const res = await request(`change-cart`, {
-                            method: 'POST',
-                            body: { 
-                                user: JSON.parse(getCookie('user')).email, 
-                                action: "delete",
-                                productName: j.name
-                            }
-                        });
+                        Cart.delete(j.name);
                     } else {
-                        const res2 = await request(`change-cart`, {
-                            method: 'POST',
-                            body: { 
-                                user: JSON.parse(getCookie('user')).email, 
-                                action: "remove",
-                                productName: j.name
-                            }
-                        });
+                        Cart.decrease(j.name);
                     }
                     document.location.reload(true);
                 }
@@ -82,24 +48,11 @@ async function getCart () {
         e.addEventListener('click', () => {
             res.forEach( async (j,k) =>{
                 if (i == k) {
-                    let product = j.name;
-                    // console.log(product)
-                    let cookie = JSON.parse(getCookie('user'));
-                    const res = await request(`change-cart`, {
-                        method: 'POST',
-                        body: { 
-                            user: cookie.email, 
-                            action: "add",
-                            productName: product
-                        }
-                    });
+                    Cart.increase(j.name);
                     document.location.reload(true);
-                    console.log(res);
                 }
             })
         })
     })
 }
-
-verifySession();
-getCart();
+main();
