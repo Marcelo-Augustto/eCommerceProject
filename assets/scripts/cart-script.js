@@ -54,5 +54,10 @@ async function main() {
             })
         })
     })
+
+    document.getElementById('logout').addEventListener('click', async () => {
+        request(`logout`, { method: 'DELETE'} );
+        document.location.reload(true);
+    })
 }
 main();
