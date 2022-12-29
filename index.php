@@ -31,6 +31,8 @@ $router->post("/add-to-cart", "Api:addToCart");
 $router->post("/get-cart", "Api:getCart");
 $router->post("/change-cart", "Api:changeCart");
 $router->get("/get-all-products", "Api:getAllProducts");
+$router->get("/verify-session", "Api:verifySession");
+$router->delete("/logout", "Api:logout");
 
 // error pages
 $router->get("/error/404", "Error:e404");

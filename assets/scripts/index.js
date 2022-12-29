@@ -72,12 +72,9 @@ iptnSearch.addEventListener('input', async () => {
     }
 })
 
-document.getElementById('logout').addEventListener('click', () => {
-    if (getCookie('user')){
-        setCookie("user", "", 0);
-        console.log(getCookie("user"));
-        document.location.reload(true);
-    }
+document.getElementById('logout').addEventListener('click', async () => {
+    request(`logout`, { method: 'DELETE'} );
+    document.location.reload(true);
 })
 
 async function getProducts() {

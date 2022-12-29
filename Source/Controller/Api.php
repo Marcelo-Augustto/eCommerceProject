@@ -5,12 +5,25 @@ namespace Source\Controller;
 require "Source/Boot/config.php";
 require "Source/Core/Connect.php";
 
+
+session_start();
+
 class Api {
 
     public function login($data) {
         if ($data) {
             $user = new \Source\Models\User(); 
-            $user->findUser($data["email"], $data["password"]);
+            
+            if ($user->findUser($data["email"], $data["password"])) {
+                $user1 = $user->getByEmail($data["email"]);
+                $_SESSION["user"] = $user1;
+                $output = [ "logged" => true ];
+            }
+            else {
+                $output = [ "error" => "Email and password does not match" ];
+            }
+
+            echo json_encode($output);
         }
     }
 
@@ -36,6 +49,14 @@ class Api {
         } else {
             $output["status"] = "error";
             echo json_encode($output);
+        }
+    }
+
+    public function verifySession() {
+        if ($_SESSION["user"]) {
+            echo json_encode($_SESSION["user"]);
+        } else {
+            echo json_encode($output["status"] = "error");
         }
     }
 
@@ -105,4 +126,7 @@ class Api {
         }
     }
 
+    public function logout() {
+        unset($_SESSION["user"]);
+    }
 }

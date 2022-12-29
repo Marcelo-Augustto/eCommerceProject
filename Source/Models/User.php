@@ -42,14 +42,20 @@
             if ($stmt->rowCount() != 0) {
                 $user = $stmt->fetch();
                 if (password_verify($password, $user->password)){
-                    $output = array();
-                    $output["user"] = $user; 
-                    $output["status"] = "success";
-                    echo json_encode($output);
+                    // $output = array();
+                    // $output["user"] = $user; 
+                    // $output["status"] = "success";
+                    // echo json_encode($output);
+
+                    $this->id = $user->id;
+                    $this->name = $user->name;
+                    return $this;
+
                 } else {
-                    $output = array();
-                    $output["status"] = "User Not Found";
-                    echo json_encode($output);
+                    return false;
+                    // $output = array();
+                    // $output["status"] = "User Not Found";
+                    // echo json_encode($output);
                 }
             }
         }
@@ -60,6 +66,17 @@
             $stmt->execute([ $name ]);
             $user = $stmt->fetch();
             echo json_encode($user);
+        }
+
+        public function getByEmail(string $email) {
+            $query = "SELECT * FROM users WHERE email = ?";
+            $stmt = Connect::getInstance()->prepare($query);
+            $stmt->execute([ $email ]);
+
+            $user = $stmt->fetch();
+            $user->password = null;
+
+            return $user;
         }
 
         public function validateRegistration (string $email) {

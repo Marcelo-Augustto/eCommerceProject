@@ -1,4 +1,4 @@
-import { setCookie, getCookie, eraseCookie } from "./utils.js";
+import { setCookie, getCookie, eraseCookie, request } from "./utils.js";
 
 const Verify = {
     register: function(data1, msg) {
@@ -10,48 +10,52 @@ const Verify = {
             msg.classList.remove('hidden');
         }
     },
-    login: function(data2) {
-        if (data2.status && data2.status == "success"){
-            console.log(data2);
+    login: async function(data2) {
+        if (data2.logged){
+            const resp = await request(`verify-session`);
             setCookie("user", JSON.stringify({
-                id: data2.user.id,
-                username: data2.user.name, 
-                email: data2.user.email
+                email: resp.email, 
             }), 7);
             window.location.href = 'home';
-        } else if (data2.status && data2.status == "User Not Found") {
+        } else if (data2.error && data2.error== "User Not Found") {
             document.getElementById('error-l').classList.remove('hidden');
         }
     },
-    index_session: function() {
-        if (getCookie("user")){
+    index_session: async function() {
+        try {
+            const resp = await request(`verify-session`);
             document.getElementById('to-change').classList.add('hidden');
             document.getElementById('logout').classList.remove('hidden');
             let profileName = document.getElementById('profile-name');
-            let cookie = JSON.parse(getCookie('user'));
-            profileName.innerHTML = cookie.username;
+            profileName.innerHTML = resp.name;
             profileName.classList.remove('hidden');
             document.getElementById('open').classList.remove('hidden'); 
+        } catch (error) {
+            //pass
         }
     },
-    cart_session: function() {
-        if (getCookie("user")){
+    cart_session: async function() {
+        try {
+            const resp = await request(`verify-session`);
             document.getElementById('to-change').classList.add('hidden');
             document.getElementById('logout').classList.remove('hidden');
             let profileName = document.getElementById('profile-name');
-            let cookie = JSON.parse(getCookie('user'));
-            profileName.innerHTML = cookie.username;
+            profileName.innerHTML = resp.name;
             profileName.classList.remove('hidden');
+        } catch (error) {
+            //pass
         }
     },
-    about_session: function() {
-        if (getCookie("user")){
+    about_session: async function() {
+        try {
+            const resp = await request(`verify-session`);
             document.getElementById('to-change').classList.add('hidden');
             document.getElementById('logout').classList.remove('hidden');
             let profileName = document.getElementById('profile-name');
-            let cookie = JSON.parse(getCookie('user'));
-            profileName.innerHTML = cookie.username;
+            profileName.innerHTML = resp.name;
             profileName.classList.remove('hidden');
+        } catch (error) {
+            //pass
         }
     }
 };
