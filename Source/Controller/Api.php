@@ -126,6 +126,14 @@ class Api {
         }
     }
 
+    public function search($data) {
+        $product = new \Source\Models\Product();
+        $products = $product->search($data["name"]);
+
+        echo json_encode($products);
+        // echo json_encode($data);
+    }
+
     public function logout() {
         unset($_SESSION["user"]);
     }

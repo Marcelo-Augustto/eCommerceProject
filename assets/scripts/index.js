@@ -49,22 +49,20 @@ iptnSearch.addEventListener('input', async () => {
 
     document.querySelector('.h1-deals-div').innerHTML = `<h1>Results for "${iptnSearch.value}"</h1>`;
 
-    const data = await Product.getAll();
+    const data = await Product.search(iptnSearch.value);
 
     if (data) {
         data.forEach(e => {
-            if (e.name == iptnSearch.value) {
                 document.getElementById('products').insertAdjacentHTML("afterbegin", `
-                <div class="product">
-                    <div class="img-test">
-                        <img src="${e.imgUrl}">
+                    <div class="product">
+                        <div class="img-test">
+                            <img src="${e.imgUrl}">
+                        </div>
+                        <a href="#" class="product-name">${e.name}</a>
+                        <span class="price">$ ${e.price}</span>
+                        <button class="button-2" role="button"><b>Buy</b></button>
                     </div>
-                    <a href="#" class="product-name">${e.name}</a>
-                    <span class="price">$ ${e.price}</span>
-                    <button class="button-2" role="button"><b>Buy</b></button>
-                </div>
-        `);
-            }
+            `);
         }) 
     }
     if (iptnSearch.value == "") {

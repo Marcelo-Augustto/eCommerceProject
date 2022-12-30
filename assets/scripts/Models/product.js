@@ -43,6 +43,17 @@ class Product{
 
         return resp;
     }
+
+    static async search(name) {
+        const resp = await request(`search`, {
+            method: 'POST',
+            body: {
+                name: name
+            }
+        });
+
+        return resp;
+    }
 }
 
 export { Product };

@@ -30,6 +30,7 @@ $router->post("/register-product", "Api:registerProduct");
 $router->post("/add-to-cart", "Api:addToCart");
 $router->post("/get-cart", "Api:getCart");
 $router->post("/change-cart", "Api:changeCart");
+$router->post("/search", "Api:search");
 $router->get("/get-all-products", "Api:getAllProducts");
 $router->get("/verify-session", "Api:verifySession");
 $router->delete("/logout", "Api:logout");
