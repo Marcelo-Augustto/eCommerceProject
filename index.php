@@ -33,6 +33,7 @@ $router->post("/change-cart", "Api:changeCart");
 $router->post("/search", "Api:search");
 $router->get("/get-all-products", "Api:getAllProducts");
 $router->get("/verify-session", "Api:verifySession");
+$router->get("/get-product-by-id/{id}", "Api:getProductById");
 $router->delete("/logout", "Api:logout");
 
 // error pages

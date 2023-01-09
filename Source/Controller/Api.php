@@ -133,6 +133,13 @@ class Api {
         echo json_encode($products);
         // echo json_encode($data);
     }
+    
+    public function getProductById($data) {
+    	$product1 = new \Source\Models\Product();
+    	$param = (int) $data["id"];
+    	$product2 = $product1->getById($param);
+    	echo json_encode($product2[0]);
+    }
 
     public function logout() {
         unset($_SESSION["user"]);

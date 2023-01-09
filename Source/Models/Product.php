@@ -86,6 +86,21 @@
             $products = $stmt->fetchAll();
             echo json_encode($products);
         }
+        
+        public function getById(int $id) {
+            //return $id;		
+        	
+            $query = "SELECT * FROM products WHERE id = ?";
+            $stmt = Connect::getInstance()->prepare($query);
+            $stmt->execute([ $id ]);
+
+            if($stmt->rowCount() != 0){
+                $products = $stmt->fetchAll();
+                return $products;
+            } else {
+                return false;
+            }
+        }
 
         public function search(string $name) {
             $query = "SELECT * FROM products WHERE name LIKE ?";
