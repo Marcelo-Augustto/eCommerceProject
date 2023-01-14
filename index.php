@@ -34,6 +34,7 @@ $router->post("/search", "Api:search");
 $router->get("/get-all-products", "Api:getAllProducts");
 $router->get("/verify-session", "Api:verifySession");
 $router->get("/get-product-by-id/{id}", "Api:getProductById");
+$router->get("/get-cart-product-by-user/{user}/{id}", "Api:getCartProductByUser");
 $router->delete("/logout", "Api:logout");
 
 // error pages

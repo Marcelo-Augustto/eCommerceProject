@@ -54,6 +54,14 @@
             $products = $stmt->fetchAll();
             echo json_encode($products);
         }
+        
+        public function getCartProductByUser (string $user, int $id) {
+            $query = "SELECT * FROM shoppingCart WHERE cartUser = :user AND id = :id";
+            $stmt = Connect::getInstance()->prepare($query);
+            $stmt->execute([ "user" => $user, "id" => $id ]);
+            $product = $stmt->fetchAll();
+            return $product;
+        }
 
         public function cartPlus (string $user, string $product) {
             $query = "UPDATE shoppingCart SET quantity = quantity + 1 WHERE cartUser = :user AND name = :product";
@@ -68,7 +76,7 @@
         }
 
         public function cartDelete (string $user, string $product) {
-            $query = "DELETE FROM shoppingCart WHERE cartUser = :user AND name = :product AND quantity = 0";
+            $query = "DELETE FROM shoppingCart WHERE cartUser = :user AND name = :product";
             $stmt = Connect::getInstance()->prepare($query);
             $stmt->execute([ "user" => $user, "product" => $product]);
         }
@@ -88,8 +96,6 @@
         }
         
         public function getById(int $id) {
-            //return $id;		
-        	
             $query = "SELECT * FROM products WHERE id = ?";
             $stmt = Connect::getInstance()->prepare($query);
             $stmt->execute([ $id ]);

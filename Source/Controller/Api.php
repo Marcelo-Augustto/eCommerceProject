@@ -91,7 +91,7 @@ class Api {
             $product = new \Source\Models\Product(
                 NULL,
                 $data["product_name"],
-                $data["price"],
+                floatval($data["price"]),
                 $data["img"],
             );
             $product->addToCart($data["cartUser"]);
@@ -106,6 +106,13 @@ class Api {
     public function getCart($data) {
         $products = new \Source\Models\Product();
         $products->getCart($data["user"]); 
+    }
+    
+    public function getCartProductByUser($data) {
+    	$product = new \Source\Models\Product();
+    	$id = (int) $data["id"];
+    	$resp = $product->getCartProductByUser($data["user"], $id);
+    	echo json_encode($resp[0]);
     }
 
     public function changeCart($data) {
@@ -140,7 +147,7 @@ class Api {
     	$product2 = $product1->getById($param);
     	echo json_encode($product2[0]);
     }
-
+	
     public function logout() {
         unset($_SESSION["user"]);
     }

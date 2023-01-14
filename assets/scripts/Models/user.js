@@ -12,17 +12,15 @@ class User{
         email = null,
         password = null
     ) {
+
         this.#id = id;
 
-        if (name && name != "") {
-            this.#name = name;
-        }
-        if (email && email != "") {
-            this.#email = email;
-        }
-        if (password && password != "") {
-            this.#password = password;
-        }
+        this.#name = name != "" ? name : null;
+
+        this.#email = email != "" ? email : null;
+        
+        this.#password = password != "" ? password : null;
+        
     }
 
     async insert() {
