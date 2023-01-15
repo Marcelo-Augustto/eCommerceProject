@@ -17,7 +17,7 @@ class Api {
             if ($user->findUser($data["email"], $data["password"])) {
                 $user1 = $user->getByEmail($data["email"]);
                 $_SESSION["user"] = $user1;
-                $output = [ "logged" => true ];
+                $output = [ "logged" => "true" ];
             }
             else {
                 $output = [ "error" => "Email and password does not match" ];
@@ -47,7 +47,7 @@ class Api {
                 echo json_encode($output);
             }
         } else {
-            $output["status"] = "error";
+            $output["status"] = "Error";
             echo json_encode($output);
         }
     }
@@ -146,6 +146,12 @@ class Api {
     	$param = (int) $data["id"];
     	$product2 = $product1->getById($param);
     	echo json_encode($product2[0]);
+    }
+    
+    public function getUserByEmail($data) {
+    	$sample = new \Source\Models\User();
+    	$user = $sample->getByEmail($data["email"]);
+    	echo json_encode($user);
     }
 	
     public function logout() {

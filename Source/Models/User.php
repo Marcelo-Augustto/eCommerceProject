@@ -74,7 +74,6 @@
             $stmt->execute([ $email ]);
 
             $user = $stmt->fetch();
-            $user->password = null;
 
             return $user;
         }
