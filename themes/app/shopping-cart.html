@@ -5,65 +5,97 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart</title>
-    <link rel="stylesheet" type="text/css" href="./assets/css/shopping-cart.css">
+    <!-- Core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/index.css">
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
 </head>
 <body>
-    <header>
-        <div class="container">
-          <nav>
-            <a href="home"><span>eCommerce</span></a> 
-            <input type="text" id="search" placeholder="Type in the name of the product">
-            <ul>
-              <li>
-                <a id="profile-name" class="hidden"></a>
+   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="home">eCommerce</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about">About</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="shopping-cart">Shopping Cart</a>
+          </li>
+          <li class="nav-item">
+            <a href="sign-in">
+              <button type="button" class="btn btn-outline-dark" id="to-change">Sign-in</button>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link hidden" id="profile-name" href="#">Perfil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link hidden" id="logout" href="#">Sign-Out</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="h-100">
+  <div class="container py-5">
+    <div class="row d-flex justify-content-center my-4">
+      <div class="col-md-8 d-flex flex-row">
+        <div class="card mb-4">
+          <div class="card-header py-3">
+            <h5 class="mb-0">Cart</h5>
+          </div>
+          <div class="card-body cart">
+            
+        </div>
+      </div>
+
+      <div class="col-md-4" style="margin-left: 0.7rem;">
+        <div class="card mb-4">
+          <div class="card-header py-3">
+            <h5 class="mb-0">Summary</h5>
+          </div>
+          <div class="card-body">
+            <ul class="list-group list-group-flush">
+              <li
+                class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+                Products
+                <span class="total1">$ 0.00</span>
               </li>
-              <li>
-                <a href="sign-in" id="to-change">Sign-in</a>
+              <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                Shipping
+                <span>Free</span>
               </li>
-              <li>
-                <a href="shopping-cart">Cart</a>
-              </li>
-              <li>
-                <a href="home">Products</a>
-              </li>
-              <li>
-                <a href="about">About</a>
-              </li>
-              <li>
-                <a id="logout" class="hidden">Sign-out</a>
+              <li
+                class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+                <div>
+                  <strong>Total amount</strong>
+                </div>
+                <span><strong class="total">$ 0.00</strong></span>
               </li>
             </ul>
-          </nav>
+
+            <button type="button" class="btn btn-dark">
+              Go to checkout
+            </button>
           </div>
         </div>
-      </header>
-      <main>
-        <div class="container">
-          <div class="cart">
-            <div class="product-info">
-              <div class="img">
-                <span></span>
-              </div>
-              <div class="product-name">
-                <span>Name</span>
-              </div>
-              <div class="quantity">
-                <span>Quantity</span>
-              </div>
-              <div class="price">
-                <span>Price</span>
-              </div>
-            </div>
-          </div>
-          <div id="price-table">
-            <div class="total">
-              <h1>Total:</h1>
-              <h3 id="total">$ 0.00</h2>
-            </div>
-            <button class="button-2" role="button"><b>Buy</b></button>
-          </div>
-        </div>
-      </main>
-    <script type="module" src="./assets/scripts/cart-script.js" async></script>
+      </div>
+    </div>
+  </div>
+  </section>
+  <script src="./assets/scripts/cart-script.js" type="module" async></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 </html>

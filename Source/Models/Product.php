@@ -8,18 +8,24 @@
         private $name;
         private $price;
         private $imgUrl;
+        private $description;
+        private $owner;
 
         public function __construct(
             ?int $id = NULL,
             ?string $name = NULL, 
             ?string $price = NULL, 
-            ?string $imgUrl = NULL
+            ?string $imgUrl = NULL,
+            ?string $description = NULL,
+            ?string $owner = NULL
         )
         {
             $this->id = $id;
             $this->name = $name;
             $this->price = $price;
             $this->imgUrl = $imgUrl;
+            $this->description = $description;
+            $this->owner = $owner;
         }
         
         public function insert () {

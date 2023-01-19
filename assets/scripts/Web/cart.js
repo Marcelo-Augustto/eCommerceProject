@@ -46,7 +46,8 @@ const Cart = {
             let tempPrice = Number(p.price) * Number(p.quantity);
             totalPrice = totalPrice + tempPrice;
         });
-            document.getElementById('total').innerHTML = `$ ${totalPrice.toFixed(2)}`;
+            document.querySelector('.total').innerHTML = `$ ${totalPrice.toFixed(2)}`;
+            document.querySelector('.total1').innerHTML = `$ ${totalPrice.toFixed(2)}`;
     },
 };
 

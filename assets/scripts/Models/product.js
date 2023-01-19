@@ -5,12 +5,16 @@ class Product{
     #img = null;
     #product_name = null;
     #price = null;
+    #description = null;
+    #owner = null;
 
     constructor(
         id = null,
         img = null, 
         product_name = null, 
-        price = null
+        price = null,
+        description = null,
+        owner = null
         ) {
             this.#id = id
             
@@ -22,6 +26,12 @@ class Product{
             }
             if (price && price != "") {
                 this.#price = price;
+            }
+            if (description && description != "") {
+                this.#description = description;
+            }
+            if (owner && owner != "") {
+                this.#owner = owner;
             }
     }
 
