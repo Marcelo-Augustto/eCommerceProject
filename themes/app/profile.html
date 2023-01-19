@@ -5,8 +5,193 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
+       <!-- Core CSS -->
+       <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+       <link rel="stylesheet" type="text/css" href="./assets/css/profile.css">
+       <!-- Font Awesome icons (free version)-->
+       <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+       <!-- Bootstrap icons-->
+       <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />   
 </head>
 <body>
-    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="home">eCommerce</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about">About</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="shopping-cart">Shopping Cart</a>
+                </li>
+                <li class="nav-item" id="to-change">
+                <a href="sign-in">
+                    <button type="button" class="btn btn-outline-dark">Sign-in</button>
+                </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link ative hidden" id="profile-name" href="#">Perfil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link hidden" href="#" id="logout">Sign-Out</a>
+                </li>
+            </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container rounded bg-white mt-5">
+        <div class="row">
+            <div class="col-md-3 border-right">
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                    <img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/6672868/13701/v/600/depositphotos_137014128-stock-illustration-user-profile-icon.jpg">
+                </br>
+                    <span class="font-weight-bold">Placeholder</span>
+                    <span class="text-black-50">placeholder@email.com</span>
+                    <span> </span>
+                </div>
+            </div>
+                <div class="col-md-5 border-right">
+                    <div class="p-3 py-5">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4 class="text-right">Profile Settings</h4>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-12"><label class="labels">Username</label><input type="text" class="form-control" placeholder="enter your username" value=""></div>
+                            <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control" placeholder="enter your email" value=""></div>
+                            <div class="col-md-12"><label class="labels">Password</label><input type="password" class="form-control" placeholder="enter your password" value=""></div>
+                         </div>
+                        <div class="row mt-3">
+                            <div class="col-md-6"><label class="labels">Password (fill to change any info)</label><input type="password" class="form-control" placeholder="Password" value=""></div>
+                        </div>
+                        <div class="mt-5 text-center"><button class="btn btn-outline-dark profile-button" type="button">Save</button></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-3 py-5">
+                        <div class="d-flex justify-content-between align-items-center experience"><span>Add product</span><span class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Product</span></div><br>
+                        <div class="col-md-12"><label class="labels">Image Url</label><input type="text" class="form-control" placeholder="enter the image url" value=""></div>
+                        <div class="col-md-12"><label class="labels">Product name</label><input type="text" class="form-control" placeholder="enter the product name" value=""></div>
+                        <div class="col-md-12"><label class="labels">Price</label><input type="text" class="form-control" placeholder="enter the product price" type="number"></div>
+                        <div class="col-md-12"><label class="labels">Description</label><input type="text" class="form-control" placeholder="enter the product password" value=""></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <section class="py-3">
+            <div class="container px-4 px-lg-5">
+                <div class="text-start section-h2 h2-div">
+                    <h2 class="section-heading text-uppercase mb-5">Your products</h2>
+                </div>
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center main-container">
+                  <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAYFBMVEUohv+72P+/2//C3f8Pf/89kP8gg/+Kuf9sqP88jv+Dtf8Zgf8jhP+VwP+cxP9Nl/+hyP/I4f91rf+pzf9bnv+31v+my/80i/8siP9+sv9ppv9GlP+v0f9Smv+PvP9lo/81ZPuBAAACKklEQVR4nO3a4ZKaMBRA4UBiFBJdcFWsVff937KwFgiCS9yObaDn+8l4Z3IkKDgKAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfBn79IjWL1jHy5ht3JDKZ8Kq3b4ZyRevXuAfMot3GTVin0Jz3DgjMuxCa344i/UrVKcojqZSqH6eO4EehbrIuiMhF1q97C7Wo1CVF200kUJrLvu7xY4WmuRw/56EW6jttbfYkcLyou29JcEWfn7e91f7ZaG5v2hDLtRiPbTYrwqtSYdHgixUH9HQCXQKrWl93r6ot/ODkSALs+Gz0RbaYrNunMpE0/vUDbpQrx+cjvYcJrK9kUvLQr2dVKG1+/HC9lBVKNTh0bsSYqHQOycgOvgUisIpjLPQC4Vq9qnc6NRd+8PCdp/K9+TDGQmzsN6n8X6nzNKrUJjbPo3jrdGr4At/71N5Lb8ZtWehSKrXyawoRyZQWO3T+Hypnu69C8t9Gken6gWTKLQiTm+/XngXCnXeHG/X5BQKy8T61HgXNr/oTKOw8UxhPTKLwu49zd3I9AttkW1q2WqOhf1ni+7IDApHRigMC4VDIxSGZbjQOvojcyi8vDWSXuIcChe5rOXLWX7j/w/3pRRSGBAKKaTw36NwBoVX2coH7tpS0xtZ5c5I8IW2SBz1UedQ0X+4OLojx7+63O8Y+9/e8//rAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgG34BSb8cFkfMnG4AAAAASUVORK5CYII=" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Placeholder</h5>
+                                <!-- Product price-->
+                                R$ 0.00
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto btn-show-product" href="./app/product.html">View Product</a></div>
+                        </div>
+                    </div>
+                  </div>
+        
+                  <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAYFBMVEUohv+72P+/2//C3f8Pf/89kP8gg/+Kuf9sqP88jv+Dtf8Zgf8jhP+VwP+cxP9Nl/+hyP/I4f91rf+pzf9bnv+31v+my/80i/8siP9+sv9ppv9GlP+v0f9Smv+PvP9lo/81ZPuBAAACKklEQVR4nO3a4ZKaMBRA4UBiFBJdcFWsVff937KwFgiCS9yObaDn+8l4Z3IkKDgKAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfBn79IjWL1jHy5ht3JDKZ8Kq3b4ZyRevXuAfMot3GTVin0Jz3DgjMuxCa344i/UrVKcojqZSqH6eO4EehbrIuiMhF1q97C7Wo1CVF200kUJrLvu7xY4WmuRw/56EW6jttbfYkcLyou29JcEWfn7e91f7ZaG5v2hDLtRiPbTYrwqtSYdHgixUH9HQCXQKrWl93r6ot/ODkSALs+Gz0RbaYrNunMpE0/vUDbpQrx+cjvYcJrK9kUvLQr2dVKG1+/HC9lBVKNTh0bsSYqHQOycgOvgUisIpjLPQC4Vq9qnc6NRd+8PCdp/K9+TDGQmzsN6n8X6nzNKrUJjbPo3jrdGr4At/71N5Lb8ZtWehSKrXyawoRyZQWO3T+Hypnu69C8t9Gken6gWTKLQiTm+/XngXCnXeHG/X5BQKy8T61HgXNr/oTKOw8UxhPTKLwu49zd3I9AttkW1q2WqOhf1ni+7IDApHRigMC4VDIxSGZbjQOvojcyi8vDWSXuIcChe5rOXLWX7j/w/3pRRSGBAKKaTw36NwBoVX2coH7tpS0xtZ5c5I8IW2SBz1UedQ0X+4OLojx7+63O8Y+9/e8//rAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgG34BSb8cFkfMnG4AAAAASUVORK5CYII=" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Placeholder</h5>
+                                <!-- Product price-->
+                                R$ 0.00
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto btn-show-product" href="./app/product.html">View Product</a></div>
+                        </div>
+                    </div>
+                  </div>
+
+                  <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAYFBMVEUohv+72P+/2//C3f8Pf/89kP8gg/+Kuf9sqP88jv+Dtf8Zgf8jhP+VwP+cxP9Nl/+hyP/I4f91rf+pzf9bnv+31v+my/80i/8siP9+sv9ppv9GlP+v0f9Smv+PvP9lo/81ZPuBAAACKklEQVR4nO3a4ZKaMBRA4UBiFBJdcFWsVff937KwFgiCS9yObaDn+8l4Z3IkKDgKAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfBn79IjWL1jHy5ht3JDKZ8Kq3b4ZyRevXuAfMot3GTVin0Jz3DgjMuxCa344i/UrVKcojqZSqH6eO4EehbrIuiMhF1q97C7Wo1CVF200kUJrLvu7xY4WmuRw/56EW6jttbfYkcLyou29JcEWfn7e91f7ZaG5v2hDLtRiPbTYrwqtSYdHgixUH9HQCXQKrWl93r6ot/ODkSALs+Gz0RbaYrNunMpE0/vUDbpQrx+cjvYcJrK9kUvLQr2dVKG1+/HC9lBVKNTh0bsSYqHQOycgOvgUisIpjLPQC4Vq9qnc6NRd+8PCdp/K9+TDGQmzsN6n8X6nzNKrUJjbPo3jrdGr4At/71N5Lb8ZtWehSKrXyawoRyZQWO3T+Hypnu69C8t9Gken6gWTKLQiTm+/XngXCnXeHG/X5BQKy8T61HgXNr/oTKOw8UxhPTKLwu49zd3I9AttkW1q2WqOhf1ni+7IDApHRigMC4VDIxSGZbjQOvojcyi8vDWSXuIcChe5rOXLWX7j/w/3pRRSGBAKKaTw36NwBoVX2coH7tpS0xtZ5c5I8IW2SBz1UedQ0X+4OLojx7+63O8Y+9/e8//rAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgG34BSb8cFkfMnG4AAAAASUVORK5CYII=" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Placeholder</h5>
+                                <!-- Product price-->
+                                R$ 0.00
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto btn-show-product" href="./app/product.html">View Product</a></div>
+                        </div>
+                    </div>
+                  </div>
+
+                  <div class="col mb-5">
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAYFBMVEUohv+72P+/2//C3f8Pf/89kP8gg/+Kuf9sqP88jv+Dtf8Zgf8jhP+VwP+cxP9Nl/+hyP/I4f91rf+pzf9bnv+31v+my/80i/8siP9+sv9ppv9GlP+v0f9Smv+PvP9lo/81ZPuBAAACKklEQVR4nO3a4ZKaMBRA4UBiFBJdcFWsVff937KwFgiCS9yObaDn+8l4Z3IkKDgKAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfBn79IjWL1jHy5ht3JDKZ8Kq3b4ZyRevXuAfMot3GTVin0Jz3DgjMuxCa344i/UrVKcojqZSqH6eO4EehbrIuiMhF1q97C7Wo1CVF200kUJrLvu7xY4WmuRw/56EW6jttbfYkcLyou29JcEWfn7e91f7ZaG5v2hDLtRiPbTYrwqtSYdHgixUH9HQCXQKrWl93r6ot/ODkSALs+Gz0RbaYrNunMpE0/vUDbpQrx+cjvYcJrK9kUvLQr2dVKG1+/HC9lBVKNTh0bsSYqHQOycgOvgUisIpjLPQC4Vq9qnc6NRd+8PCdp/K9+TDGQmzsN6n8X6nzNKrUJjbPo3jrdGr4At/71N5Lb8ZtWehSKrXyawoRyZQWO3T+Hypnu69C8t9Gken6gWTKLQiTm+/XngXCnXeHG/X5BQKy8T61HgXNr/oTKOw8UxhPTKLwu49zd3I9AttkW1q2WqOhf1ni+7IDApHRigMC4VDIxSGZbjQOvojcyi8vDWSXuIcChe5rOXLWX7j/w/3pRRSGBAKKaTw36NwBoVX2coH7tpS0xtZ5c5I8IW2SBz1UedQ0X+4OLojx7+63O8Y+9/e8//rAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgG34BSb8cFkfMnG4AAAAASUVORK5CYII=" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">Placeholder</h5>
+                                <!-- Product price-->
+                                R$ 0.00
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto btn-show-product" href="./app/product.html">View Product</a></div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </section>
+    </div>
+
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <div class="col-md-4 d-flex align-items-center">
+            <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+            <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
+            </a>
+            <span class="mb-3 mb-md-0 text-muted">© 2023 eCommerce, Inc</span>
+        </div>
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
+            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+        </ul>
+    </footer>
+
+    <script src="./assets/scripts/profile.js" type="module" async></script>
 </body>
 </html>

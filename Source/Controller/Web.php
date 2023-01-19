@@ -23,4 +23,8 @@ class Web {
     public function cart() {
         $this->view->render('app/shopping-cart', []);
     }
+
+    public function profile()  {
+        $this->view->render('app/profile', []);
+    }
 }
