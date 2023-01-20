@@ -39,6 +39,10 @@ class Product{
         return request(`get-all-products`);
     }
 
+    static async getById(id) {
+        return request(`get-product-by-id/${id}`);
+    }
+
     static async getUserProducts(email) {
         return request(`get-user-products/${email}`);
     }

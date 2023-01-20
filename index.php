@@ -23,6 +23,7 @@ $router->get("/sign-in", "Web:login");
 $router->get("/about", "Web:about");
 $router->get("/shopping-cart", "Web:cart");
 $router->get("/profile", "Web:profile");
+$router->get("/product", "Web:product");
 
 // api routes
 $router->post("/login", "Api:login");

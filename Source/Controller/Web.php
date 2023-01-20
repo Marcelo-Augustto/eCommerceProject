@@ -27,4 +27,8 @@ class Web {
     public function profile()  {
         $this->view->render('app/profile', []);
     }
+
+    public function product() {
+        $this->view->render('web/product', []);
+    }
 }

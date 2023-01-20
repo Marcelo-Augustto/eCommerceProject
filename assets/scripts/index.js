@@ -65,7 +65,7 @@ async function getProducts() {
             <div class="card-body p-4">
                 <div class="text-center">
                     <!-- Product name-->
-                    <h5 class="fw-bolder">${p.name}</h5>
+                    <h5 class="fw-bolder prod-name">${p.name}</h5>
                     <!-- Product price-->
                     R$ ${p.price}
                 </div>
@@ -73,7 +73,7 @@ async function getProducts() {
             <!-- Product actions-->
             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent d-flex flex-column">
                 <button type="button" class="btn btn-dark buy">Add to cart</button>
-                <button type="button" class="btn btn-outline-dark mt-2">View product</button>
+                <button type="button" class="btn btn-outline-dark mt-2 btn-view-product">View product</button>
             </div>
         </div>
       </div>
@@ -97,6 +97,18 @@ async function getProducts() {
 
                     window.alert(`${p.name} was added to your shopping cart`);
                     document.location.reload(true); 
+                }
+            })
+        })
+    })
+
+    document.querySelectorAll('.btn-view-product').forEach((e,i) => {
+        e.addEventListener('click', () => {
+            document.querySelectorAll('.prod-name').forEach((j,k) => {
+                if(k == i){
+                    data.reverse();
+                    localStorage.setItem('request', JSON.stringify(data[i].id));
+                    window.location.href = "product";
                 }
             })
         })

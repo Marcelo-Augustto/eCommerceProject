@@ -69,6 +69,18 @@ const Verify = {
         } catch (error) {
             window.location.href = 'sign-in';
         }
+    },
+    product_session: async function() {
+        try {
+            const resp = await request(`verify-session`);
+            document.getElementById('to-change').classList.add('hidden');
+            document.getElementById('logout').classList.remove('hidden');
+            let profileName = document.getElementById('profile-name');
+            profileName.innerHTML = resp.name;
+            profileName.classList.remove('hidden');
+        } catch (error) {
+            //pass
+        }
     }
 };
 
