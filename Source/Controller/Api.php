@@ -69,6 +69,8 @@ class Api {
                 $data["product_name"],
                 $data["price"],
                 $data["img"],
+                $data["description"],
+                $data["owner"]
             );
             $product->insert();
             $output["status"] = "Success";
@@ -77,6 +79,13 @@ class Api {
             $output["status"] = "Error";
             echo json_encode($output);
         }
+    }
+
+    public function deleteProduct($data) {
+        $sample = new \Source\Models\Product();
+        $sample->delete($data["product_name"]);
+        $output["status"] = "success";
+        echo json_encode($output);
     }
 
     public function getAllProducts() {

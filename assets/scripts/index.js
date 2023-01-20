@@ -2,44 +2,6 @@ import { request, setCookie, getCookie, eraseCookie  } from "./Helpers/utils.js"
 import { Verify } from "./Helpers/verify.js";
 import { Product } from "./Models/product.js";
 
-
-// const btnOpen = document.getElementById('open');
-// const menu = document.getElementById('add-menu');
-// const btnClose = document.getElementById('close');
-
-// btnOpen.addEventListener('click', () => {
-//     menu.classList.remove("hidden");
-//     btnClose.classList.remove("hidden");
-//     btnOpen.classList.add("hidden");
-// })
-
-// btnClose.addEventListener('click', () => {
-//     menu.classList.add("hidden");
-//     btnClose.classList.add("hidden");
-//     btnOpen.classList.remove("hidden");
-// })
-
-// document.getElementById('add').addEventListener('click', async () => {
-//     let img = document.getElementById('img').value;
-//     let product_name = document.getElementById('name').value;
-//     let price = document.getElementById('price').value;
-
-//     if (!img == "" && !product_name == "" && !price == ""){
-//         const product = new Product(
-//             null,
-//             img, 
-//             product_name, 
-//             price
-//         );
-//         product.insert();
-
-//         menu.classList.add("hidden");
-//         btnClose.classList.add("hidden");
-//         btnOpen.classList.remove("hidden");
-//         location.reload(true);
-//     }
-// })
-
 const iptnSearch = document.getElementById('search-bar');
 
 iptnSearch.addEventListener('input', async () => {
@@ -92,7 +54,6 @@ document.getElementById('logout').addEventListener('click', async () => {
 
 async function getProducts() {
     const data = await Product.getAll();
-    console.log(data);
 
     data.forEach( p => {
         document.getElementById('products').insertAdjacentHTML("afterbegin", `

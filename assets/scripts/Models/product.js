@@ -44,12 +44,20 @@ class Product{
             product_name: this.#product_name,
             price: this.#price,
             img: this.#img,
+            description: this.#description,
+            owner: this.#owner
         }
 
         const resp = await request(`register-product`, {
             method: 'POST',
             body: body,
         });
+
+        return resp;
+    }
+
+    async delete(product_name) {
+        const resp = await request(`delete-product/${product_name}`, { method: 'DELETE'});
 
         return resp;
     }

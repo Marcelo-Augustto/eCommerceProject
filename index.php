@@ -38,6 +38,7 @@ $router->get("/verify-session", "Api:verifySession");
 $router->get("/get-product-by-id/{id}", "Api:getProductById");
 $router->get("/get-cart-product-by-user/{user}/{id}", "Api:getCartProductByUser");
 $router->get("/get-user-by-email/{email}", "Api:getUserByEmail");
+$router->delete("/delete-product/{product_name}", "Api:deleteProduct");
 $router->delete("/logout", "Api:logout");
 
 // error pages

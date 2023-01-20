@@ -30,14 +30,22 @@
         
         public function insert () {
             $bd = Connect::getInstance();
-            $query = "INSERT INTO products VALUES (NULL, :name, :price,:url)";
+            $query = "INSERT INTO products VALUES (NULL, :name, :price,:url, :description, :owner)";
             $stmt = $bd->prepare($query);
             $stmt->execute([
                 "name" => $this->name,
                 "price" => $this->price,
-                "url" => $this->imgUrl
+                "url" => $this->imgUrl,
+                "description" => $this->description,
+                "owner" => $this->owner
             ]);
             $this->id = $bd->lastInsertId();
+        }
+
+        public function delete(string $product_name) {
+            $query = "DELETE FROM products WHERE name = ?";
+            $stmt = Connect::getInstance()->prepare($query);
+            $stmt->execute([ $product_name ]);
         }
 
         public function addToCart (string $cartUser) {
