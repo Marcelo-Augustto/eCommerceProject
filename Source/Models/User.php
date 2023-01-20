@@ -42,20 +42,12 @@
             if ($stmt->rowCount() != 0) {
                 $user = $stmt->fetch();
                 if (password_verify($password, $user->password)){
-                    // $output = array();
-                    // $output["user"] = $user; 
-                    // $output["status"] = "success";
-                    // echo json_encode($output);
-
                     $this->id = $user->id;
                     $this->name = $user->name;
                     return $this;
 
                 } else {
                     return false;
-                    // $output = array();
-                    // $output["status"] = "User Not Found";
-                    // echo json_encode($output);
                 }
             }
         }
@@ -88,7 +80,43 @@
             } else {
                 return false;
             }
+        }
 
+        public function update(?string $email, ?string $newUsername, ?string $newPassword) {
+            if ($newPassword == null) {
+                $query = "UPDATE users SET name = :name WHERE email = :email";
+                $stmt = Connect::getInstance()->prepare($query);
+                $stmt->execute([ 
+                    "name" => $newUsername,
+                    "email" => $email
+                 ]);
+
+                 return true;
+            } else if ($newUsername == null) {
+                $hash = password_hash($newPassword, PASSWORD_DEFAULT);
+                $query = "UPDATE users SET password = :password WHERE email = :email";
+                $stmt = Connect::getInstance()->prepare($query);
+                $stmt->execute([ 
+                    "password" => $hash,
+                    "email" => $email
+                 ]);
+
+                 return true;
+            } else{
+                $hash = password_hash($newPassword, PASSWORD_DEFAULT);
+                $query = "UPDATE users SET name = :name , password = :password WHERE email = :email";
+                $stmt = Connect::getInstance()->prepare($query);
+                $stmt->execute([ 
+                    "name" => $newUsername,
+                    "password" => $hash,
+                    "email" => $email
+                 ]);
+
+                 return true;
+            }
+
+            return false;
+            
         }
         
     }       

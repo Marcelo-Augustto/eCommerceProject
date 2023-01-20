@@ -32,6 +32,7 @@ $router->post("/add-to-cart", "Api:addToCart");
 $router->post("/get-cart", "Api:getCart");
 $router->post("/change-cart", "Api:changeCart");
 $router->post("/search", "Api:search");
+$router->post("/update-user", "Api:updateUser");
 $router->get("/get-all-products", "Api:getAllProducts");
 $router->get("/verify-session", "Api:verifySession");
 $router->get("/get-product-by-id/{id}", "Api:getProductById");

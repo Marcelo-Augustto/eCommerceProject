@@ -138,7 +138,6 @@ class Api {
         $products = $product->search($data["name"]);
 
         echo json_encode($products);
-        // echo json_encode($data);
     }
     
     public function getProductById($data) {
@@ -154,6 +153,22 @@ class Api {
     	echo json_encode($user);
     }
 	
+    public function updateUser($data) {
+        $sample = new \Source\Models\User();
+        
+        if ($sample->findUser($data["email"], $data["password"])) {
+            if ($sample->update($data["email"], $data["newUsername"], $data["newPassword"])) {
+                $output["status"] = "success";
+            } else {
+                $output["status"] = "error";
+            }
+        } else {
+            $output["status"] = "error";
+        }
+        
+        echo json_encode($output);
+    }
+
     public function logout() {
         unset($_SESSION["user"]);
     }

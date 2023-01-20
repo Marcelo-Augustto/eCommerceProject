@@ -67,7 +67,7 @@ const Verify = {
             profileName.innerHTML = resp.name;
             profileName.classList.remove('hidden');
         } catch (error) {
-            //pass
+            window.location.href = 'sign-in';
         }
     }
 };

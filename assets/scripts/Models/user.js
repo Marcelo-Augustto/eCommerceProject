@@ -51,6 +51,22 @@ class User{
 
         return resp;
     }
+
+    async update(email, password, newUsername, newPassword) {
+        const body = {
+            email: email,
+            password: password,
+            newUsername: newUsername,
+            newPassword: newPassword
+        }
+
+        const resp = await request(`update-user`, { 
+            method: 'POST',
+            body: body, 
+        });
+
+        return resp;
+    }
 }
 
 export { User };
