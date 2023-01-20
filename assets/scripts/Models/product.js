@@ -39,6 +39,10 @@ class Product{
         return request(`get-all-products`);
     }
 
+    static async getUserProducts(email) {
+        return request(`get-user-products/${email}`);
+    }
+
     async insert() {
         const body = {
             product_name: this.#product_name,

@@ -108,6 +108,14 @@
             $products = $stmt->fetchAll();
             echo json_encode($products);
         }
+
+        public function getUserProducts (string $email) {
+            $query = "SELECT * FROM products WHERE owner = ?";
+            $stmt = Connect::getInstance()->prepare($query);
+            $stmt->execute([ $email ]);
+            $products = $stmt->fetchAll();
+            return $products;
+        }
         
         public function getById(int $id) {
             $query = "SELECT * FROM products WHERE id = ?";

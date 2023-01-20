@@ -93,6 +93,11 @@ class Api {
         $products->getAllProducts();
     }
 
+    public function getUserProducts($data) {
+        $products = new \Source\Models\Product();
+        echo json_encode($products->getUserProducts($data["email"]));
+    }
+
     public function addToCart($data) {
         $output = array();
 

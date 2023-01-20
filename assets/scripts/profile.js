@@ -50,8 +50,8 @@ document.querySelector('.btn-add-product').addEventListener('click', async () =>
 });
 
 async function getProducts() {
-    const data = await Product.getAll();
-    console.log(data);
+    const user = await request(`verify-session`);
+    const data = await Product.getUserProducts(user.email);
 
     data.forEach( p => {
         document.getElementById('products').insertAdjacentHTML("afterbegin", `
